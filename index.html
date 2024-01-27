@@ -1,0 +1,107 @@
+
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>Death Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta name="theme-color" content="#712cf9">
+    <style>
+      
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-bg-dark">
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div> 
+      <h3 class="float-md-center mb-0 text-black" > <span><img src="./sign-dead-end.svg"></span> Death Calculator</h3>
+    </div>
+  </header>
+
+  <main class="px-3">
+    <form class="form-control p-3 shadow p-3 mb-5 bg-white rounded" id="form">
+        <label for="year p-3">Enter your Age</label>
+        <input type="number" id="year" class='p-1 m-2' placeholder="Eg: 21" min="1" max="89" required><br />
+
+        <select class="form-select p-3 mt-2" onclick="comments(value)" aria-label="Default select example">
+            <option selected value="75" disabled>Choose how long you think you might live</option>
+            <option value="60">60</option>
+            <option value="70">70 </option>
+            <option value="80">80 </option>
+            <option value="90">90 </option>
+            <option value="100"> >90</option>
+          </select>
+          <h5 id="comments" class="p-3"> Default - 75 Years (Well, You know me I'm Delusional..)</h5>
+        <button id="btn">Done</button>
+    </form>
+    <div class="output pb-1 ">
+        <h1 id="output" class=" text-black"></h1>
+    </div>
+  </main>
+
+  <footer class="mt-auto text-black">
+    <p>I made this project to make people aware of how little time we have in our hands. So let us stop worrying and wasting our precious time and live happily with a smile on our faces.</p>
+    <p>Want to speak to me - stephenstarc01@gmail.com, by <a href="" >@Starc</a>.</p>
+  </footer>
+</div>
+<script>
+let insertComment = document.getElementById('comments')
+let form = document.getElementById('form')
+    function comments(option){
+        console.log(option);
+        // switch(option){
+        //     case '60':insertComment.innerText = 'Geez, What happened Childhood Trama'
+        //     case '70':insertComment.innerText = 'Someone is Optimistic'
+        //     case '80':insertComment.innerText = 'Um, Good Luck with that'
+        //     case '90':insertComment.innerText = "Come on, let's be Serious"
+        //     case '100':insertComment.innerText = 'Really, What are The Queen???'
+        //     default : return 
+        // }
+        if (option == 60){
+            insertComment.innerText = 'Geez, What happened Childhood Trauma??'
+            // alert('Geez, What happened Childhood Trama ??')
+        } else if(option == 70){
+            insertComment.innerText = 'Oooooo, Someone is Optimistic.'
+        }else if(option == 80){
+            insertComment.innerText = 'Yay, Good Luck with that.'
+        }else if(option == 90){
+            insertComment.innerText = "Come on, let's be Serious."
+        }else if(option == 100){
+            insertComment.innerText = 'Really, What are The Queen???'
+        }
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        let year = document.getElementById('year')
+         let yearNo = year.value
+
+        function LifeinWeeks(age, value=75){
+    let yearsRemaining = value  - age;
+    let daysRemaining = yearsRemaining * 365;
+    let weeksRemaining = yearsRemaining * 52;
+    let monthsRemaining = yearsRemaining * 12
+
+    
+    let output = document.querySelector('#output')
+    output.innerText = `You have ${yearsRemaining} years and ${monthsRemaining} months and ${weeksRemaining} weeks and ${daysRemaining} days`
+} 
+formSelect = document.querySelector('.form-select')
+LifeinWeeks(yearNo, formSelect.value) 
+
+    })
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    </body>
+</html>
