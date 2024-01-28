@@ -1,4 +1,4 @@
-# Death-Calculator - Calculate your remaining Life Span with Age
+# Death-Calculator - Calculate your remaining Life Span  using Age
 
 <div align='center'>
 <img src="./SS1.png">
